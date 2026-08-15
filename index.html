@@ -1,0 +1,468 @@
+<!-- 
+/*<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#080014">
+
+    <title>Forgive Me ❤️</title>
+
+    فونت فارسی 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+     فایل CSS 
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    صفحه شروع 
+    <div id="intro">
+
+        <div class="intro-content">
+
+            <div class="heart-icon">
+                ❤️
+            </div>
+
+            <h1>
+                یه چیزی برات ساختم...
+            </h1>
+
+            <p>
+                فقط چند دقیقه وقت بذار ❤️
+            </p>
+
+            <button id="startButton">
+                وارد شو ✨
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- محیط سه بعدی 
+    <div id="scene-container"></div>
+
+
+    <!-- متن اصلی -->
+    <div id="message" class="hidden">
+
+        <div class="message-box">
+
+            <h2>
+                می‌دونم ناراحتی... 🥺
+            </h2>
+
+            <p>
+                شاید بعضی حرف‌ها رو نباید می‌زدم،
+                شاید بعضی کارها رو نباید می‌کردم...
+            </p>
+
+            <p>
+                ولی یه چیز رو مطمئنم؛
+                نمی‌خوام این فاصله بینمون بمونه. ❤️
+            </p>
+
+            <button id="heartButton">
+                یه چیزی رو ببین ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- سؤال نهایی 
+    <div id="question" class="hidden">
+
+        <div class="question-box">
+
+            <div class="big-heart">
+                ❤️
+            </div>
+
+            <h2>
+                آشتی کنیم؟
+            </h2>
+
+            <div class="buttons">
+
+                <button id="yesButton">
+                    آره ❤️
+                </button>
+
+                <button id="notYetButton">
+                    هنوز ناراحتم 🥺
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- پیام نهایی 
+    <div id="finalMessage" class="hidden">
+
+        <div class="final-box">
+
+            <div class="final-heart">
+                ❤️
+            </div>
+
+            <h1>
+                می‌دونستم! 🥹❤️
+            </h1>
+
+            <p>
+                قول میدم بیشتر حواسم به دلت باشه.
+            </p>
+
+            <p>
+                دوستت دارم ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- پیام «هنوز ناراحتم» 
+    <div id="sadMessage" class="hidden">
+
+        <div class="sad-box">
+
+            <div class="sad-icon">
+                🥺
+            </div>
+
+            <h2>
+                باشه...
+            </h2>
+
+            <p>
+                عجله نمی‌کنم.
+            </p>
+
+            <p>
+                فقط بدون که هنوز برام مهمی ❤️
+            </p>
+
+            <button id="backButton">
+                برگردیم ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+
+<!-- Three.js 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<!-- پروژه ما 
+<script src="script.js"></script>
+
+</body>
+
+</html>
+-->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="theme-color" content="#050008">
+
+    <meta name="description"
+          content="یک پیام سه‌بعدی از قلب برای کسی که دوستش دارم ❤️">
+
+    <title>برای تو ❤️</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================
+         3D BACKGROUND
+    ====================================== -->
+
+    <div id="scene-container"></div>
+
+
+    <!-- =====================================
+         LOADING
+    ====================================== -->
+
+    <div id="loading">
+
+        <div class="loading-heart">
+            ❤️
+        </div>
+
+        <div class="loading-text">
+            یه لحظه...
+        </div>
+
+        <div class="loading-bar">
+            <span></span>
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         INTRO
+    ====================================== -->
+
+    <section id="intro">
+
+        <div class="intro-content">
+
+            <div class="heart-icon">
+                ❤️
+            </div>
+
+            <span class="small-title">
+                یه چیز کوچیک برات ساختم
+            </span>
+
+            <h1>
+                فقط می‌خوام<br>
+                یه لحظه به حرف دلم گوش کنی...
+            </h1>
+
+            <p>
+                شاید نتونم همه چیز رو با کلمات درست بگم،
+                برای همین اینو ساختم. ❤️
+            </p>
+
+            <button id="startButton" class="primary-button">
+                وارد شو
+                <span>✨</span>
+            </button>
+
+            <div class="hint">
+                صدا و تجربه بهتر با هدفون 🎧
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         MESSAGE
+    ====================================== -->
+
+    <section id="message" class="ui-screen hidden">
+
+        <div class="glass-card">
+
+            <div class="card-decoration">
+                ✦
+            </div>
+
+            <span class="card-label">
+                از طرف قلبم
+            </span>
+
+            <h2>
+                می‌دونم ناراحتی... 🥺
+            </h2>
+
+            <p>
+                شاید بعضی حرف‌ها رو نباید می‌زدم،
+                شاید بعضی کارها رو نباید می‌کردم.
+            </p>
+
+            <p>
+                ولی باور کن هیچ‌وقت قصد نداشتم
+                دلت رو ناراحت کنم.
+            </p>
+
+            <p class="highlight-text">
+                نمی‌خوام این فاصله بینمون بمونه. ❤️
+            </p>
+
+            <button id="heartButton" class="primary-button">
+                یه چیزی رو ببین
+                <span>❤️</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         QUESTION
+    ====================================== -->
+
+    <section id="question" class="ui-screen hidden">
+
+        <div class="glass-card question-card">
+
+            <div class="big-heart">
+                ❤️
+            </div>
+
+            <span class="card-label">
+                فقط یه سؤال...
+            </span>
+
+            <h2>
+                آشتی کنیم؟
+            </h2>
+
+            <p>
+                دلم نمی‌خواد بینمون ناراحتی بمونه.
+            </p>
+
+            <div class="buttons">
+
+                <button
+                    id="yesButton"
+                    class="primary-button">
+                    آره ❤️
+                </button>
+
+                <button
+                    id="notYetButton"
+                    class="secondary-button">
+                    هنوز ناراحتم 🥺
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         FINAL
+    ====================================== -->
+
+    <section id="finalMessage" class="ui-screen hidden">
+
+        <div class="glass-card final-card">
+
+            <div class="final-heart">
+                ❤️
+            </div>
+
+            <span class="card-label">
+                بالاخره...
+            </span>
+
+            <h1>
+                می‌دونستم 🥹❤️
+            </h1>
+
+            <p>
+                ممنون که دوباره لبخند زدی.
+            </p>
+
+            <p class="highlight-text">
+                قول میدم بیشتر مراقب دلت باشم.
+            </p>
+
+            <div class="signature">
+                با عشق، برای تو ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         SAD MESSAGE
+    ====================================== -->
+
+    <section id="sadMessage" class="ui-screen hidden">
+
+        <div class="glass-card">
+
+            <div class="sad-icon">
+                🥺
+            </div>
+
+            <span class="card-label">
+                باشه...
+            </span>
+
+            <h2>
+                عجله نمی‌کنم.
+            </h2>
+
+            <p>
+                حق داری ناراحت باشی.
+            </p>
+
+            <p>
+                فقط بدون که هنوز برام مهمی. ❤️
+            </p>
+
+            <button
+                id="backButton"
+                class="primary-button">
+                یه بار دیگه فکر کن ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         MUSIC BUTTON
+    ====================================== -->
+
+    <button id="musicButton" class="music-button">
+        🔇
+    </button>
+
+
+    <!-- =====================================
+         THREE.JS
+    ====================================== -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js">
+    </script>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
